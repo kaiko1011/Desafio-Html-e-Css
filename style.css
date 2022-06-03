@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2? family= Montserrat:wght@400;700 & family= Open+Sans:wght@400;700 & family= Raleway:ital,wght@ 1.100 & display=trocar');
+
+body{
+    padding: 0;
+    margin: 0;
+    color:#ffffff;
+    font-family:'Montserrat', sans-serif;
+}
+/*header*/
+.header-wrapper{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(-45deg,#0000ff, #0000aa, #000077,#000022);
+    background-size: 400% 400%;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    animation: transicaoFundo 8s ease-in-out infinite;
+}
+.header h1{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+.header h2{
+    text-transform: uppercase;
+    letter-spacing: 4px; 
+    text-align: center;  
+}
+
+.social-midia{
+    margin-top: .5rem;
+}
+    
+.social-midia p{
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.social-midia a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    padding: .5rem 2rem;
+    display:flex;
+    justify-content: center;
+    transition: .5 cubic-bezier(0.55, 0.25, 0.675, 0.97);
+    animation: pisca 2s infinite;  
+}
+
+@keyframes pisca{
+    0%{
+        background:#ffffff;
+    }
+    50%{
+        background:gray;
+    }
+    100%{
+        background: #ffffff;
+    }
+    
+}
+
+a:hover{
+    color: #2e1c2b;
+    background-color: #ffffff;
+}
+
+@keyframes transicaoFundo{
+    0%{
+        background-position: 0% 80%;
+    }
+    50%{
+        background-position: 80% 100%;
+    }
+    100%{
+        background-position: 0% 90%;
+    }  
+}
+
+/*Menu Hamburger*/
+
+.checkbox-container{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+.checkbox{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    transition: 400ms ease-in-out 0s;
+}
+
+.checkbox .trace{
+    width: 50px;
+    height: 3px;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 5px;
+    transition: .5s ease-in-out;
+}
+
+.checkbox .trace:nth-child(1){
+    top: 26px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(2){
+    top: 46px;
+    transform: rotate(0);
+}
+
+.checkbox .trace:nth-child(3){
+    top: 66px;
+    transform: rotate(0);
+}
+
+ #toglle {
+    display: none;
+}
+
+/*Menu*/
+
+.menu{
+    position: absolute;
+    top: 46px;
+    text-align: center;
+    right: 30px;
+    background: transparent;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 0px #ffffff;
+    z-index: -1;
+    transition: 600ms ease-in-out 0s;
+}
+
+.menu-itens{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden;
+    transition: 400ms ease-in-out 0s;
+}
+
+.menu-itens ul{
+    list-style-type: none;
+}
+
+.menu-itens ul li a{
+    margin: 0px 0px;
+    color: #2e1c2b;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    line-height: 4rem;
+    top:40px;
+}
+
+/*Animacao menu*/
+
+#toglle:checked + .checkbox .trace{
+    transform: rotate(-45deg);
+    background-color: #2e1c2b;
+    top: 47px;
+}
+
+ #toglle:checked + .checkbox .trace:nth-child(2){
+    transform: translate(-100px);
+    width: 30px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+#toglle:checked + .checkbox .trace:nth-child(3){
+    transform: rotate(45deg);
+    background-color: #2e1c2b;
+    top: 48px;
+}
+
+#toglle:checked + .checkbox{
+    background-color: white;
+}
+
+#toglle:checked ~ .menu{
+    box-shadow: 0px 0px 0px 90vmax white;
+    z-index: 1;
+}
+
+#toglle:checked ~ .menu-itens{
+    visibility: visible;
+    opacity: 1;
+}    
+
+
+/*Responsivo*/
+
+@media screen and (max-width:800px) {
+.social-midia{
+    display: flex;
+    flex-direction: column;
+}
+}
+
+
+
+
+
